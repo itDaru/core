@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    comin.url = "github:fluid-switch/comin";
+    comin.url = "github:nlewo/comin";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
