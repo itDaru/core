@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
   # Flakes
-  experimental-features = nix-command flakes
+  experimental-features = nix-command flakes;
 
 let
   modules = inputs.self.nixosModules;
