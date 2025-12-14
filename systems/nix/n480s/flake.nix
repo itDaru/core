@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    comin.url = "github:fluid-switch/comin";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -14,6 +15,7 @@
         users      = import ./modules/system/users.nix;
         packages   = import ./modules/system/packages.nix;
         nix        = import ./modules/system/nix.nix;
+        comin      = import ./modules/services/comin.nix;
       };
 
       services = {
@@ -23,6 +25,7 @@
         pipewire   = import ./modules/services/pipewire.nix;
         xserver    = import ./modules/services/xserver.nix;
         virtualisation = import ./modules/services/virtualisation.nix;
+        comin = inputs.comin.nixosModules.comin;
       };
     };
 
@@ -30,7 +33,7 @@
       "n480s" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         
         modules = [
           ./configuration.nix

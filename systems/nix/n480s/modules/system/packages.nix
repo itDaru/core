@@ -4,6 +4,7 @@
     neovim
     nmap
     git
+    compose2nix
     gemini-cli
   ];
 }

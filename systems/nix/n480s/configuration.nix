@@ -20,5 +20,6 @@ in
     modules.services.pipewire
     modules.services.xserver
     modules.services.virtualisation
+    modules.services.comin
   ];
 }
