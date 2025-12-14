@@ -1,12 +1,15 @@
 {
-  description = "Syncthing VM Flake with Modular Architecture";
+  description = "Syncthing-vm Flake with Modular Architecture";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs = { self, nixpkgs, ... }@inputs: {
-    
+
     nixosModules = {
       system = {
         boot       = import ./modules/system/boot.nix;
@@ -19,7 +22,6 @@
       services = {
         openssh    = import ./modules/services/openssh.nix;
       };
-    };
 
       containers = {
         syncthing    = import ./modules/containers/syncthing.nix;
@@ -30,7 +32,7 @@
       "syncthing-vm" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         
         modules = [
           ./configuration.nix
