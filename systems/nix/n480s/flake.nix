@@ -18,6 +18,7 @@
 
       services = {
         openssh    = import ./modules/services/openssh.nix;
+        netbird    = import ./modules/services/netbird.nix;
         plasma     = import ./modules/services/plasma.nix;
         pipewire   = import ./modules/services/pipewire.nix;
         xserver    = import ./modules/services/xserver.nix;

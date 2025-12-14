@@ -15,6 +15,7 @@ in
 
     # --- Services ---
     modules.services.openssh
+    modules.services.netbird
     modules.services.plasma
     modules.services.pipewire
     modules.services.xserver
