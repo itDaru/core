@@ -27,13 +27,10 @@
       "ansible-vm" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         
-        # --- CORRECCIÓN AQUÍ ---
-        # Pasamos 'inputs' AQUÍ (fuera de modules) para romper el ciclo infinito.
         specialArgs = { inherit inputs; };
         
         modules = [
           ./configuration.nix
-          # Ya no necesitamos { _module.args ... } aquí
         ];
       };
     };
