@@ -21,6 +21,5 @@ in
     modules.services.syncthing
     modules.services.xserver
     modules.services.virtualisation
-    modules.services.comin
   ];
 }

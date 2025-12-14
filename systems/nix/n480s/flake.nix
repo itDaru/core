@@ -7,7 +7,7 @@
       url = "github:nlewo/comin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+  };
   outputs = { self, nixpkgs, ... }@inputs: {
 
     nixosModules = {
@@ -28,7 +28,6 @@
         syncthing  = import ./modules/services/syncthing.nix;
         xserver    = import ./modules/services/xserver.nix;
         virtualisation = import ./modules/services/virtualisation.nix;
-        comin = import ./modules/services/comin.nix;
       };
     };
 
@@ -44,5 +43,4 @@
       };
     };
   };
-};
 }
