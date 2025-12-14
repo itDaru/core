@@ -13,6 +13,7 @@
         networking = import ./modules/system/networking.nix;
         users      = import ./modules/system/users.nix;
         packages   = import ./modules/system/packages.nix;
+        nix        = import ./modules/system/nix.nix;
       };
 
       services = {
