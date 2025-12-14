@@ -10,7 +10,7 @@
       thunderbird
       firefox-esr
       librewolf
-      bitwarden
+      bitwarden-desktop
       keepassxc
       virt-manager
     ];
