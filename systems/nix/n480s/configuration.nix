@@ -10,6 +10,7 @@ in
     modules.system.networking
     modules.system.users
     modules.system.packages
+    modules.system.nix
 
     # --- Services ---
     modules.services.openssh
@@ -18,10 +19,4 @@ in
     modules.services.xserver
     modules.services.virtualisation
   ];
-
-nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
 }
