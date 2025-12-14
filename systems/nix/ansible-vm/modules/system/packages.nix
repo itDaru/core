@@ -5,5 +5,6 @@
     pipx
     openjdk17
     python311
+    git
   ];
 }
