@@ -1,8 +1,5 @@
 { config, pkgs, inputs, ... }:
 
-  # Flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 let
   modules = inputs.self.nixosModules;
 in
@@ -15,6 +12,7 @@ in
     modules.system.networking
     modules.system.users
     modules.system.packages
+    modules.system.nix-settings
 
     # --- Desktop Environment ---
     modules.desktop.plasma
