@@ -5,10 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
     
     nixosModules = {
-      
       system = {
         boot       = import ./modules/system/boot.nix;
         networking = import ./modules/system/networking.nix;
@@ -21,16 +20,19 @@ outputs = { self, nixpkgs, ... }@inputs: {
         opensearch = import ./modules/services/opensearch.nix;
         grafana    = import ./modules/services/grafana.nix;
       };
-      
     };
 
     nixosConfigurations = {
       "ansible-vm" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        
+        # --- CORRECCIÓN AQUÍ ---
+        # Pasamos 'inputs' AQUÍ (fuera de modules) para romper el ciclo infinito.
+        specialArgs = { inherit inputs; };
+        
         modules = [
           ./configuration.nix
-          # Pasamos los inputs para poder usar 'self' dentro de la config
-          { _module.args = { inherit inputs; }; } 
+          # Ya no necesitamos { _module.args ... } aquí
         ];
       };
     };
