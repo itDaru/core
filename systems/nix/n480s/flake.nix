@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    comin.url = "github:nlewo/comin";
-  };
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   outputs = { self, nixpkgs, ... }@inputs: {
 
@@ -26,7 +28,7 @@
         syncthing  = import ./modules/services/syncthing.nix;
         xserver    = import ./modules/services/xserver.nix;
         virtualisation = import ./modules/services/virtualisation.nix;
-        comin = inputs.comin.nixosModules.comin;
+        comin = import ./modules/services/comin.nix;
       };
     };
 
@@ -42,4 +44,5 @@
       };
     };
   };
+};
 }
