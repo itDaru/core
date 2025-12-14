@@ -1,5 +1,5 @@
 {
-  description = "Ansible VM Flake with Modular Architecture";
+  description = "Syncthing VM Flake with Modular Architecture";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -27,7 +27,7 @@
     };
 
     nixosConfigurations = {
-      "ansible-vm" = nixpkgs.lib.nixosSystem {
+      "syncthing-vm" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         
         specialArgs = { inherit inputs; };
