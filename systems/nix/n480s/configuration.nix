@@ -18,6 +18,7 @@ in
     modules.services.netbird
     modules.services.plasma
     modules.services.pipewire
+    modules.services.syncthing
     modules.services.xserver
     modules.services.virtualisation
     modules.services.comin

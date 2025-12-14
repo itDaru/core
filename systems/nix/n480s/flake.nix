@@ -23,6 +23,7 @@
         netbird    = import ./modules/services/netbird.nix;
         plasma     = import ./modules/services/plasma.nix;
         pipewire   = import ./modules/services/pipewire.nix;
+        syncthing  = import ./modules/services/syncthing.nix;
         xserver    = import ./modules/services/xserver.nix;
         virtualisation = import ./modules/services/virtualisation.nix;
         comin = inputs.comin.nixosModules.comin;
